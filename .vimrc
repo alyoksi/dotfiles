@@ -63,7 +63,12 @@ call plug#begin('~/.vim/plugged')
     let g:UltiSnipsExpandTrigger = '<tab>'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
     let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
-
+    
+    Plug 'preservim/nerdcommenter'
+    "Usage:
+    "1. Select lines
+    "2. <leader>c<space> - both comment and uncomment
+    
     Plug 'vim-airline/vim-airline'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ctrlpvim/ctrlp.vim'
@@ -75,6 +80,7 @@ set completeopt=menu,menuone,longest
 set background=dark
 
 filetype indent on
+filetype plugin on
 
 "TODO bind Ctrl+A to work like in emacs
 ""Same to do with Ctrl+E
