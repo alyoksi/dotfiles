@@ -5,6 +5,8 @@ for
 minimal
 all
 pb
+bins
+gcd
 */
 endsnippet
 
@@ -15,20 +17,33 @@ for (int ${1:i} = 0; $1 < ${2:n}; $1++) {
 endsnippet
 
 snippet minim "minimalist begin"
-#include<iostream>
-#include<vector>
-#include<algorithm>
+#include<bits/stdc++.h>
 
 using namespace std;
-typedef unsigned long long ull;
-typedef long long ll;
-typedef long double ld;
+using ull = unsigned long long;
+using ll = long long;
+
+#define pb push_back
+#define fi first
+#define se second
+#define all(x) begin(x), end(x)
+#define vi vector<int>
+#define vii vector<pair<int,int>>
+#define vll vector<ll>
+
+ll find_root(ll x){
+    ll root = sqrt(x);
+    while((root+1)*(root+1) <= x) root++;
+    while(root * root > x) root --;
+    return root;
+}
+
 
 int32_t main() {
     ios::sync_with_stdio(0);
     cin.tie(0);
 
-    
+    $0
 
     return 0;
 }
@@ -40,4 +55,12 @@ endsnippet
 
 snippet pb "push_back"
 ${1:arr}.push_back($0);
+endsnippet
+
+snippet vec "vector<>"
+vector<$1> $0;
+endsnippet
+
+snippet gcd "gcd lol"
+gcd($1, $2)$0
 endsnippet
