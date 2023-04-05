@@ -1,6 +1,5 @@
 set nocompatible " we want new vim features whenever they are available
-set bs=2         " backspace should work as we expect it to
-set history=50   " remember last 50 commands
+set bs=2         " backspace should work as we expect it to set history=50   " remember last 50 commands
 set ruler        " show cursor position in the bottom line
 syntax on 
 " ======================================================================================================
@@ -48,14 +47,17 @@ nnoremap <leader>b <Esc>:bNext<CR>
 noremap <Leader>a ggVG
 
 
-nnoremap <F5> <ESC> :w <CR> :!./%< <CR>
-nnoremap <F9> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< <CR>
-nnoremap <F10> <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< < input.in<CR>
+nnoremap <leader>r <ESC> :w <CR> :!./%< <CR>
+nnoremap <leader>c <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< <CR>
+nnoremap <leader>v <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< < input.in<CR>
 
 call plug#begin('~/.vim/plugged') 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
     "colorschemes
     Plug 'morhetz/gruvbox'
+
+    "code completion
+    "Plug 'ycm-core/YouCompleteMe'	
 
     "snippets
     Plug 'honza/vim-snippets'	
@@ -63,12 +65,7 @@ call plug#begin('~/.vim/plugged')
     let g:UltiSnipsExpandTrigger = '<tab>'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
     let g:UltiSnipsSnippetsDir = "~/.vim/plugged/ultisnips/UltiSnips"
-    
-    Plug 'preservim/nerdcommenter'
-    "Usage:
-    "1. Select lines
-    "2. <leader>c<space> - both comment and uncomment
-    
+
     Plug 'vim-airline/vim-airline'
     Plug 'jiangmiao/auto-pairs'
     Plug 'ctrlpvim/ctrlp.vim'
@@ -80,7 +77,6 @@ set completeopt=menu,menuone,longest
 set background=dark
 
 filetype indent on
-filetype plugin on
 
 "TODO bind Ctrl+A to work like in emacs
 ""Same to do with Ctrl+E
