@@ -1,0 +1,52 @@
+snippet snips "all snippets"
+/*
+temp
+for
+fore
+*/
+endsnippet
+
+
+snippet temp "my minimalistic template"
+#include<bits/stdc++.h>
+
+using namespace std;
+using ull = unsigned long long;
+using ll  = long long;
+#define pb push_back
+#define fi first
+#define se second
+#define vi vector<int> 
+#define vvi vector<vector<int>> 
+#define vii vector<pair<int,int>> 
+#define all(x) begin(x), end(x)
+
+void solve(){
+    $0
+}
+
+int32_t main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    int t = 1;
+    // cin >> t
+
+    while(t--) solve();
+
+    return 0;
+}
+endsnippet
+
+snippet for "typical for"
+for (int ${1:i} = 0; $1 < ${2:n}; $1++) {
+    $0
+}
+endsnippet
+
+
+snippet fore "acts like foreach in C#"
+for (${1:int} el : ${2:arr}) {
+    $0
+}
+endsnippet
