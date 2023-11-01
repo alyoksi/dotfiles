@@ -99,4 +99,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /home/alyoksi/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export PATH="~/.local/share/bin:$PATH"
+export PATH="~/.local/bin:$PATH"
+#export PATH="/usr/local/texlive/2023/bin/x86_64-linux:$PATH"
+#export PATH="~/.local/share/android-studio/bin:$PATH"

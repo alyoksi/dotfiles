@@ -1,6 +1,7 @@
 set nocompatible " we want new vim features whenever they are available
 set bs=2         " backspace should work as we expect it to set history=50   " remember last 50 commands
 set ruler        " show cursor position in the bottom line
+filetype indent on
 syntax on 
 " ======================================================================================================
 set shiftwidth=4
@@ -47,9 +48,10 @@ nnoremap <leader>b <Esc>:bNext<CR>
 noremap <Leader>a ggVG
 
 
-nnoremap <leader>r <ESC> :w <CR> :!./%< <CR>
-nnoremap <leader>c <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< <CR>
-nnoremap <leader>v <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< < input.in<CR>
+autocmd filetype cpp nnoremap <leader>r <ESC> :w <CR> :!./%< <CR>
+autocmd filetype cpp nnoremap <leader>c <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< <CR>
+autocmd filetype python nnoremap <leader>c <ESC> :w <CR> :!python3 % <CR>
+" nnoremap <leader>v <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< < input.in<CR>
 
 call plug#begin('~/.vim/plugged') 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
@@ -76,7 +78,6 @@ call plug#end()
 set completeopt=menu,menuone,longest
 set background=dark
 
-filetype indent on
 
 "TODO bind Ctrl+A to work like in emacs
 ""Same to do with Ctrl+E
