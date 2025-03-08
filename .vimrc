@@ -1,7 +1,6 @@
 set nocompatible " we want new vim features whenever they are available
 set bs=2         " backspace should work as we expect it to set history=50   " remember last 50 commands
 set ruler        " show cursor position in the bottom line
-filetype indent on
 syntax on 
 " ======================================================================================================
 set shiftwidth=4
@@ -14,9 +13,7 @@ set shiftround
 set scrolloff=8
 "======================================================================================================
 " automatically re-read files changed outside vim
-set autoread
-" automatically save before each make/execute command
-set autowrite
+set autoread " automatically save before each make/execute command set autowrite
 "======================================================================================================
 " text search settings
 set incsearch  " show the first match already while I type
@@ -38,7 +35,7 @@ let mapleader = ","
 let g:mapleader = ","
 "======================================================================================================
 set number
-set relativenumber
+"set relativenumber
 set mouse=v
 set encoding=utf-8
 "======================================================================================================
@@ -48,10 +45,14 @@ nnoremap <leader>b <Esc>:bNext<CR>
 noremap <Leader>a ggVG
 
 
-autocmd filetype cpp nnoremap <leader>r <ESC> :w <CR> :!./%< <CR>
-autocmd filetype cpp nnoremap <leader>c <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< <CR>
-autocmd filetype python nnoremap <leader>c <ESC> :w <CR> :!python3 % <CR>
-" nnoremap <leader>v <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -o %< % && ./%< < input.in<CR>
+nnoremap <leader>r <ESC> :w <CR> :!./%< <CR>
+nnoremap <leader>c <ESC> :w <CR> :!g++ -fsanitize=address -ftrapv -std=c++17 -Wall -Wextra -Wshadow -O2 -DLOCAL -o %< % && ./%< <CR>
+
+"nnoremap <leader>c <ESC> :w <CR> :!g++ -std=c++17 -Wall -Wextra -Wshadow -O2 -DLOCAL -o %< % && ./%< <CR>
+
+"nnoremap <leader>c <ESC> :w <CR> :!g++ -std=c++17 -O2 -DLOCAL -o %< % && ./%< <CR>
+ 
+nnoremap <leader>v <ESC> :w <CR> :!g++ -fsanitize=address -std=c++17 -Wall -Wextra -Wshadow -O2 -DLOCAL -o %< % && ./%< < input.in<CR>
 
 call plug#begin('~/.vim/plugged') 
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle'  }
@@ -78,6 +79,7 @@ call plug#end()
 set completeopt=menu,menuone,longest
 set background=dark
 
+filetype indent on
 
 "TODO bind Ctrl+A to work like in emacs
 ""Same to do with Ctrl+E
