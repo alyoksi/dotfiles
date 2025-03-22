@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO : current version is obsolete
+
 sudo apt install build-essential
 sudo apt install i3
 sudo apt install rofi 
