@@ -18,23 +18,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
-
-    { -- autopairs
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
-        config = true
-        -- use opts = {} for passing setup options
-        -- this is equivalent to setup({}) function
-    },
-
-    {
-    'nvim-telescope/telescope.nvim', tag = '0.1.8',
-      dependencies = { 'nvim-lua/plenary.nvim' }
-    },
-
-    {
-        'navarasu/onedark.nvim'
-    }
+    { import = "plugins" }
   },
 
   -- Configure any other settings here. See the documentation for more details.
