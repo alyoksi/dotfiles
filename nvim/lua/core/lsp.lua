@@ -3,7 +3,7 @@ require("mason-lspconfig").setup()
 
 -- installing LS's
 require("mason-lspconfig").setup {
-    ensure_installed = { "lua_ls" },
+    ensure_installed = { "lua_ls", "clangd"},
 }
 
 -- enabling lua LS
@@ -31,8 +31,27 @@ end
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig').lua_ls.setup {
     capabilities = capabilities,
     on_attach=on_attach,
 }
+
+require('lspconfig').clangd.setup({
+    cmd = {
+        'clangd',
+        '--background-index',
+        '--clang-tidy',
+        '--fallback-style=Google',
+        '--compile-commands-dir=build'
+    },
+    filetypes = { 'c', 'cpp', 'objc', 'objcpp' },
+    init_options = {
+        fallbackFlags = { '-std=c++17',
+            "-I/usr/include/c++/11",
+            "-I/usr/include/x86_64-linux-gnu/c++/11",
+        },
+    },
+
+    capabilities = capabilities,
+    on_attach=on_attach,
+})
