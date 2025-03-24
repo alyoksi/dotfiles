@@ -1,16 +1,20 @@
 local vo = vim.opt
 
+
 -- vo.clipboard:append "unnamedplus"
 vo.lazyredraw = true
 vo.number = true
 vo.mouse = 'v'
 vo.encoding = 'utf-8'
+vo.foldmethod='manual'
+vo.signcolumn='yes' -- addition column for pointing mistakes
+
 
 vo.shiftwidth = 4 	--на сколько сдвигать при <<, >>
 vo.expandtab  = true	--пробелы вместо \t
 vo.softtabstop = 4	--кол-во пробелов tab\backspace
 vo.autoindent = true	--автомат. пробелы на новой строке
--- vo.smarttab = true
+-- vo.smarttab = true   --хз что делает
 vo.smartindent = true	--indent с учетом синтаксиса
 vo.shiftround = true	--округление до стобца, кратного shiftwidth
 vo.scrolloff = 6	--отступ сверху/снизу курсора
